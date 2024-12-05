@@ -1,1 +1,1 @@
-# cv
+Repo for Austin Coursey's CV made with `rendercv` Python package.

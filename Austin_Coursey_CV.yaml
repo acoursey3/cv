@@ -1,0 +1,306 @@
+cv:
+  name: Austin Coursey
+  email: austin.c.coursey@vanderbilt.edu
+  website: https://scholar.google.com/citations?user=vLlw5KcAAAAJ
+  sections:
+    Summary:
+      - 3rd year computer science Ph.D. student at Vanderbilt University. Interested in developing and applying machine learning solutions to solve problems in real-world complex systems. Research interests include reinforcement learning, prognostics, anomaly detection, and continual learning. Recently completed a NASA System-Wide Safety project where I developed and deployd a controller that improved unmanned aerial vehicle control under strong wind disturbances. Currently researching the intersection of safe and continual reinforcement learning as part of my NSF Graduate Research Fellowship.
+    education:
+      - institution: Vanderbilt University
+        area: Computer Science 
+        degree: PhD
+        start_date: 2022-08
+        location: Nashville, TN
+        end_date: present
+        highlights:
+          - Member of the Modeling and Analysis of Complex Systems (MACS) lab under Professor Gautam Biswas at the Institute for Software Integrated Systems.
+      - institution: Murray State University
+        area: Computer Science and Mathematics
+        degree: BS
+        start_date: 2018-08
+        end_date: 2022-05
+        location: Murray, KY
+        highlights:
+          - Undergraduate Thesis - Data-driven Models for Remaining Useful Life Estimation of Aircraft Engines and Hard Disk Drives
+          - 4.0 GPA
+          - Honors Degree and Summa Cum Laude
+          - Outstanding Senior in Computer Science x2 and Mathematics
+          - Multiple leadership positions include President of Association for Computing Machinery and Vice President of Association of Information Technology Professionals
+    experience:
+      - company: Vanderbilt University
+        position: NSF Graduate Research Fellow
+        location: Nashville, TN
+        start_date: 2024-08
+        end_date: present
+        highlights:
+          - Researching the intersection of safe and continual reinforcement learning. Funded by National Science Foundation.
+      - company: Vanderbilt University
+        position: Graduate Research Assistant
+        location: Nashville, TN
+        start_date: 2023-01
+        end_date: 2024-08
+        highlights:
+          - Graduate RA in the Modeling and Analysis of Complex Systems lab in the Institute for Software Integrated Systems at Vanderbilt University. Worked at a NASA-funded unmanned aerial vehicle (UAV) system-wide safety project. Developed a reinforcement learning controller to counteract wind and fault disturbances to maintain safety.
+      - company: Vanderbilt University
+        position: Graduate Teaching Assistant
+        location: Nashville, TN
+        start_date: 2022-08
+        end_date: 2022-12
+        highlights:
+          - Graduate TA for five sections of Vanderbilt University's CS 2212 (Discrete Structures) course. Held office hours for dozens of students, graded homework and exams, and assisted professors with various tasks such as running class for the day.
+      - company: Carnegie Mellon University
+        position: Undergraduate Researcher
+        location: Pittsburgh, PA
+        start_date: 2021-06
+        end_date: 2021-08
+        highlights:
+          - Summer researcher at Carnegie Mellon University’s Research Experience for Undergraduates in Software Engineering (REUSE) program. Evaluated the quality of machine learning model documentation in the form of model cards, a standard proposed by Google. Designed a study to determine the effectiveness of a novel tool that autogenerates model cards for Jupyter Notebooks. Presented findings at a poster session at the end of the summer. Paper published in CHI.
+      - company: United Systems and Software
+        position: Software Development Intern
+        location: Benton, KY
+        start_date: 2020-06
+        end_date: 2021-06
+        highlights:
+          - Performed full-stack website development using Angular (TypeScript, CSS, and HTML), C# .NET, and SQL. Developed a web portal for utility customers across Kentucky and some surrounding states to pay their bills and participated in Agile, team-based development.
+      - company: Land Between the Lakes National Recreation Area
+        position: Webmaster Intern
+        location: Golden Pond, KY
+        start_date: 2019-08
+        end_date: 2022-08
+        highlights:
+          - Developed and maintained a website with over 129,000 monthly page visits. Created over 50 individual web pages using WordPress, HTML, and CSS.
+    Awards and Honors:
+      - name: National Science Foundation Graduate Research Fellow
+        date: 2024
+      - name: Best Reviewer Award - KDD 2024
+        date: 2024
+      - name: Murray State University Outstanding Senior Computer Science Senior (x2)
+        date: 2021-2022
+      - name: Murray State University Outstanding Mathematics Senior 
+        date: 2022
+    publications:
+      - title: "FT-AED: Benchmark Dataset for Early Freeway Traffic Anomalous Event Detection"
+        authors:
+          - Austin Coursey
+          - Junyi Ji
+          - Marcos Quinones-Grueiro 
+          - William Barbour
+          - Yuhang Zhang
+          - Tyler Derr
+          - Gautam Biswas
+          - Daniel B Work
+        doi: 10.48550/arXiv.2406.15283
+        date: 2024-12
+        journal: Neural Information Processing Systems - NeurIPS 2024 Datasets and Benchmarks
+      - title: Quantifying the Sim-To-Real Gap in UAV Disturbance Rejection
+        authors:
+          - Austin Coursey
+          - Marcos Quinones-Grueiro 
+          - Gautam Biswas
+        doi: 10.4230/OASIcs.DX.2024.16
+        date: 2024-10
+        journal: International Conference on Principles of Diagnosis and Resilient Systems - DX 2024
+      - title: Data-Driven RUL Prediction Using Performance Metrics
+        authors:
+          - Abel Diaz-Gonzalez
+          - Austin Coursey
+          - Marcos Quinones-Grueiro
+          - Chetan S. Kulkarni
+          - Gautam Biswas
+        doi: 10.4230/OASIcs.DX.2024.21
+        date: 2024-10
+        journal: International Conference on Principles of Diagnosis and Resilient Systems - DX 2024
+      - title: An Experimental Framework for Evaluating the Safety and Robustness of UAV Controllers
+        authors:
+          - Austin Coursey
+          - Marcos Quinones-Grueiro 
+          - Gautam Biswas
+        doi: 10.2514/6.2024-4548
+        date: 2024-08
+        journal: AIAA Aviation Forum 2024
+      - title: Hybrid control framework of uavs under varying wind and payload conditions
+        authors:
+          - Austin Coursey
+          - Marcos Quinones-Grueiro 
+          - Gautam Biswas
+        doi: 10.23919/ACC60939.2024.10645000
+        date: 2024-07
+        journal: American Control Conference - ACC 2024
+      - title: "Determining the temporal factors of survival associated with brain and nervous system cancer patients: A hybrid machine learning methodology"
+        authors:
+          - Gopal Nath
+          - Austin Coursey
+          - Joseph Ekong
+          - Elham Rastegari
+          - Saptarshi Sengupta
+          - Asli Z Dag
+          - Dursun Delen
+        date: 2024-07
+        doi: 10.1080/20479700.2023.2196101
+        journal: International Journal of Healthcare Management
+      - title: R Code Authorship Attribution using the ASAP Tool
+        authors:
+          - Austin Coursey
+          - Matthew Tennyson
+          - Vlad Krotov
+        doi: 10.17705/3jmwa.000090
+        date: 2024-07
+        journal: Journal of the Midwest Association for Information Systems
+      - title: Time-Series Few Shot Anomaly Detection for HVAC Systems
+        authors:
+          - Yuxin Huang
+          - Austin Coursey
+          - Marcos Quinones-Grueiro
+          - Gautam Biswas
+        doi: 10.1016/j.ifacol.2024.07.255
+        date: 2024-06
+        journal: IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - Safe Process 2024
+      - title: Comparison of Transfer Learning Techniques for Building Energy Forecasting
+        authors:
+          - Shansita Das Sharma
+          - Austin Coursey 
+          - Marcos Quinones-Grueiro
+          - Gautam Biswas
+        doi: 10.1016/j.ifacol.2024.07.214
+        date: 2024-06
+        journal: IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - Safe Process 2024
+      - title: A Flexible Data-Driven Prognostics Model Using System Performance Metrics
+        authors:
+          - Abel Diaz-Gonzalez
+          - Austin Coursey
+          - Marcos Quinones-Grueiro
+          - Gautam Biswas
+        doi: 10.1016/j.ifacol.2024.07.221
+        date: 2024-06
+        journal: IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - Safe Process 2024
+      - title: "An interactive web-based tool for predicting and exploring brain cancer survivability"
+        authors:
+          - Gopal Nath
+          - Austin Coursey
+          - Yang Li
+          - Srikanth Prabhu
+          - Harish Garg
+          - Shaymal C Halder
+          - Saptarshi Sengupta
+        doi: 10.1016/j.health.2022.100132
+        date: 2023-11
+        journal: Healthcare Analytics
+      - title: "Enhancing Prognostics with Self-Supervised Imputation"
+        authors:
+          - Austin Coursey
+          - Abel Diaz-Gonzalez
+          - Marcos Quinones-Grueiro
+          - Gautam Biswas
+        date: 2023-09
+        journal: International Workshop on Principles of Diagnosis - DX'23 - Workshop Paper
+      - title: "On Learning Data-Driven Models For In-Flight Drone Battery Discharge Estimation From Real Data"
+        authors:
+          - Austin Coursey
+          - Marcos Quinones-Grueiro 
+          - Gautam Biswas
+        doi: 10.1109/SMARTCOMP58114.2023.00038
+        date: 2023-06
+        journal: IEEE International Conference on Smart Computing - SMARTCOMP 2023
+      - title: "Large-scale End-of-Life Prediction of Hard Disks in Distributed Datacenters"
+        authors:
+          - Rohan Mohapatra
+          - Austin Coursey
+          - Saptarshi Sengupta
+        doi: 10.1109/SMARTCOMP58114.2023.00069
+        date: 2023-06
+        journal: IEEE International Conference on Smart Computing - SMARTCOMP 2023 - Workshop Paper
+      - title: "Aspirations and practice of ml model documentation: Moving the needle with nudging and traceability"
+        authors:
+          - Avinash Bhat 
+          - Austin Coursey (joint primary)
+          - Grace Hu
+          - Sixian Li
+          - Nadia Nahar
+          - Shurui Zhou
+          - Christian Kästner
+          - Jin LC Guo
+        doi: 10.1145/3544548.3581518
+        date: 2023-04
+        journal: CHI Conference on Human Factors in Computing Systems - CHI 2023
+      - title: "Incorporating a machine learning model into a Web-based administrative decision support tool for predicting workplace absenteeism"
+        authors:
+          - Gopal Nath
+          - Yawei Wang
+          - Austin Coursey
+          - Krishna K Saha
+          - Srikanth Prabhu
+          - Saptarshi Sengupta
+        doi: 10.3390/info13070320
+        date: 2022-06
+        journal: Information
+      - title: Remaining useful life estimation of hard disk drives using bidirectional lstm networks
+        authors:
+          - Austin Coursey
+          - Gopal Nath
+          - Srikanth Prabhu
+          - Saptarshi Sengupta
+        doi: 10.1109/BigData52589.2021.9671605
+        date: 2021-12
+        journal: IEEE International Conference on Big Data - Big Data 2024
+    Theses:
+      - title: "Data-driven models for remaining useful life estimation of aircraft engines and hard disk drives"
+        authors:
+          - Austin Coursey
+        date: 2022-05
+        url: https://digitalcommons.murraystate.edu/honorstheses/116/  
+    Conferences and Refereeing:
+      - name: AIAA Aviation Forum
+        date: 2024-07
+        highlights:
+          - System-Wide Safety session Co-Chair.
+      - name: IEEE Conference on Smart Computing
+        date: 2023-06
+        highlights:
+          - Student volunteer.
+      - name: Refereeing
+        highlights:
+          - International Workshop on Principles of Diagnosis (DX 2024)
+          - Journal of Aerospace Information Systems (JAIS) 
+          - IEEE Transactions on Industrial Informatics
+          - ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD 2024) **Best Reviewer Award**
+          - IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes (Safe Process 2024)
+          - American Control Conference (ACC 2023, 2024)
+          - Expert Systems with Applications
+design:
+  theme: classic
+  font: Source Sans 3
+  font_size: 10pt
+  page_size: letterpaper
+  color: '#004f90'
+  disable_external_link_icons: false
+  disable_page_numbering: false
+  page_numbering_style: NAME - Page PAGE_NUMBER of TOTAL_PAGES
+  disable_last_updated_date: false
+  last_updated_date_style: Last updated in TODAY
+  header_font_size: 30 pt
+  text_alignment: justified
+  seperator_between_connections: ''
+  use_icons_for_connections: true
+  margins:
+    page:
+      top: 2 cm
+      bottom: 2 cm
+      left: 2 cm
+      right: 2 cm
+    section_title:
+      top: 0.3 cm
+      bottom: 0.2 cm
+    entry_area:
+      left_and_right: 0.2 cm
+      vertical_between: 0.2 cm
+      date_and_location_width: 4.5 cm
+      education_degree_width: 1 cm
+    highlights_area:
+      top: 0.10 cm
+      left: 0.4 cm
+      vertical_between_bullet_points: 0.10 cm
+    header:
+      vertical_between_name_and_connections: 0.3 cm
+      bottom: 0.3 cm
+      horizontal_between_connections: 0.5 cm
+  show_timespan_in: []

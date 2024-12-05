@@ -1,0 +1,733 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Austin Coursey's CV},
+    pdfauthor={Austin Coursey},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage[default, type1]{sourcesanspro} 
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Austin Coursey - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+    % avoid page braking right after the section title
+    \needspace{4\baselineskip}
+    % make the font size of the section title large and color it with the primary color
+    \Large\color{primaryColor}
+}{
+}{
+}{
+    % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+    % from the end of the title to the end of the body
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[] % section title formatting
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{1 cm, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in December 2024}\hspace{\widthof{Last updated in December 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    \placelastupdatedtext
+    \begin{header}
+        \fontsize{30 pt}{30 pt}
+        \textbf{Austin Coursey}
+
+        \vspace{0.3 cm}
+
+        \normalsize
+        \mbox{\hrefWithoutArrow{mailto:austin.c.coursey@vanderbilt.edu}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}austin.c.coursey@vanderbilt.edu}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://scholar.google.com/citations?user=vLlw5KcAAAAJ}{{\footnotesize\faLink}\hspace*{0.13cm}scholar.google.com/citations?user=vLlw5KcAAAAJ}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+
+    \section{Summary}
+
+
+
+        
+        \begin{onecolentry}
+            3rd year computer science Ph.D. student at Vanderbilt University. Interested in developing and applying machine learning solutions to solve problems in real-world complex systems. Research interests include reinforcement learning, prognostics, anomaly detection, and continual learning. Recently completed a NASA System-Wide Safety project where I developed and deployd a controller that improved unmanned aerial vehicle control under strong wind disturbances. Currently researching the intersection of safe and continual reinforcement learning as part of my NSF Graduate Research Fellowship.
+        \end{onecolentry}
+
+
+    
+    \section{Education}
+
+
+
+        
+        \begin{threecolentry}{\textbf{PhD}}{
+            Nashville, TN
+
+        Aug 2022 – present
+        }
+            \textbf{Vanderbilt University}, Computer Science
+            \begin{highlights}
+                \item Member of the Modeling and Analysis of Complex Systems (MACS) lab under Professor Gautam Biswas at the Institute for Software Integrated Systems.
+            \end{highlights}
+        \end{threecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{threecolentry}{\textbf{BS}}{
+            Murray, KY
+
+        Aug 2018 – May 2022
+        }
+            \textbf{Murray State University}, Computer Science and Mathematics
+            \begin{highlights}
+                \item Undergraduate Thesis - Data-driven Models for Remaining Useful Life Estimation of Aircraft Engines and Hard Disk Drives
+                \item 4.0 GPA
+                \item Honors Degree and Summa Cum Laude
+                \item Outstanding Senior in Computer Science x2 and Mathematics
+                \item Multiple leadership positions include President of Association for Computing Machinery and Vice President of Association of Information Technology Professionals
+            \end{highlights}
+        \end{threecolentry}
+
+
+    
+    \section{Experience}
+
+
+
+        
+        \begin{twocolentry}{
+            Nashville, TN
+
+        Aug 2024 – present
+        }
+            \textbf{Vanderbilt University}, NSF Graduate Research Fellow
+            \begin{highlights}
+                \item Researching the intersection of safe and continual reinforcement learning. Funded by National Science Foundation.
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Nashville, TN
+
+        Jan 2023 – Aug 2024
+        }
+            \textbf{Vanderbilt University}, Graduate Research Assistant
+            \begin{highlights}
+                \item Graduate RA in the Modeling and Analysis of Complex Systems lab in the Institute for Software Integrated Systems at Vanderbilt University. Worked at a NASA-funded unmanned aerial vehicle (UAV) system-wide safety project. Developed a reinforcement learning controller to counteract wind and fault disturbances to maintain safety.
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Nashville, TN
+
+        Aug 2022 – Dec 2022
+        }
+            \textbf{Vanderbilt University}, Graduate Teaching Assistant
+            \begin{highlights}
+                \item Graduate TA for five sections of Vanderbilt University's CS 2212 (Discrete Structures) course. Held office hours for dozens of students, graded homework and exams, and assisted professors with various tasks such as running class for the day.
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Pittsburgh, PA
+
+        June 2021 – Aug 2021
+        }
+            \textbf{Carnegie Mellon University}, Undergraduate Researcher
+            \begin{highlights}
+                \item Summer researcher at Carnegie Mellon University’s Research Experience for Undergraduates in Software Engineering (REUSE) program. Evaluated the quality of machine learning model documentation in the form of model cards, a standard proposed by Google. Designed a study to determine the effectiveness of a novel tool that autogenerates model cards for Jupyter Notebooks. Presented findings at a poster session at the end of the summer. Paper published in CHI.
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Benton, KY
+
+        June 2020 – June 2021
+        }
+            \textbf{United Systems and Software}, Software Development Intern
+            \begin{highlights}
+                \item Performed full-stack website development using Angular (TypeScript, CSS, and HTML), C\# .NET, and SQL. Developed a web portal for utility customers across Kentucky and some surrounding states to pay their bills and participated in Agile, team-based development.
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Golden Pond, KY
+
+        Aug 2019 – Aug 2022
+        }
+            \textbf{Land Between the Lakes National Recreation Area}, Webmaster Intern
+            \begin{highlights}
+                \item Developed and maintained a website with over 129,000 monthly page visits. Created over 50 individual web pages using WordPress, HTML, and CSS.
+            \end{highlights}
+        \end{twocolentry}
+
+
+
+    
+    \section{Awards and Honors}
+
+
+
+        
+        \begin{twocolentry}{
+            2024
+        }
+            \textbf{National Science Foundation Graduate Research Fellow}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2024
+        }
+            \textbf{Best Reviewer Award - KDD 2024}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2021-2022
+        }
+            \textbf{Murray State University Outstanding Senior Computer Science Senior (x2)}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2022
+        }
+            \textbf{Murray State University Outstanding Mathematics Senior}
+        \end{twocolentry}
+
+
+
+    
+    \section{Publications}
+
+
+
+        
+        \begin{samepage}
+            \begin{twocolentry}{
+                Dec 2024
+            }
+                \textbf{FT-AED: Benchmark Dataset for Early Freeway Traffic Anomalous Event Detection}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Junyi Ji}, \mbox{Marcos Quinones-Grueiro}, \mbox{William Barbour}, \mbox{Yuhang Zhang}, \mbox{Tyler Derr}, \mbox{Gautam Biswas}, \mbox{Daniel B Work}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.48550/arXiv.2406.15283}{10.48550/arXiv.2406.15283}
+         (Neural Information Processing Systems - NeurIPS 2024 Datasets and Benchmarks)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                Oct 2024
+            }
+                \textbf{Quantifying the Sim-To-Real Gap in UAV Disturbance Rejection}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.4230/OASIcs.DX.2024.16}{10.4230/OASIcs.DX.2024.16}
+         (International Conference on Principles of Diagnosis and Resilient Systems - DX 2024)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                Oct 2024
+            }
+                \textbf{Data-Driven RUL Prediction Using Performance Metrics}
+
+                \vspace{0.10 cm}
+
+                \mbox{Abel Diaz-Gonzalez}, \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Chetan S. Kulkarni}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.4230/OASIcs.DX.2024.21}{10.4230/OASIcs.DX.2024.21}
+         (International Conference on Principles of Diagnosis and Resilient Systems - DX 2024)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                Aug 2024
+            }
+                \textbf{An Experimental Framework for Evaluating the Safety and Robustness of UAV Controllers}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.2514/6.2024-4548}{10.2514/6.2024-4548}
+         (AIAA Aviation Forum 2024)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                July 2024
+            }
+                \textbf{Hybrid control framework of uavs under varying wind and payload conditions}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.23919/ACC60939.2024.10645000}{10.23919/ACC60939.2024.10645000}
+         (American Control Conference - ACC 2024)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                July 2024
+            }
+                \textbf{Determining the temporal factors of survival associated with brain and nervous system cancer patients: A hybrid machine learning methodology}
+
+                \vspace{0.10 cm}
+
+                \mbox{Gopal Nath}, \mbox{Austin Coursey}, \mbox{Joseph Ekong}, \mbox{Elham Rastegari}, \mbox{Saptarshi Sengupta}, \mbox{Asli Z Dag}, \mbox{Dursun Delen}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1080/20479700.2023.2196101}{10.1080/20479700.2023.2196101}
+         (International Journal of Healthcare Management)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                July 2024
+            }
+                \textbf{R Code Authorship Attribution using the ASAP Tool}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Matthew Tennyson}, \mbox{Vlad Krotov}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.17705/3jmwa.000090}{10.17705/3jmwa.000090}
+         (Journal of the Midwest Association for Information Systems)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                June 2024
+            }
+                \textbf{Time-Series Few Shot Anomaly Detection for HVAC Systems}
+
+                \vspace{0.10 cm}
+
+                \mbox{Yuxin Huang}, \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1016/j.ifacol.2024.07.255}{10.1016/j.ifacol.2024.07.255}
+         (IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - Safe Process 2024)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                June 2024
+            }
+                \textbf{Comparison of Transfer Learning Techniques for Building Energy Forecasting}
+
+                \vspace{0.10 cm}
+
+                \mbox{Shansita Das Sharma}, \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1016/j.ifacol.2024.07.214}{10.1016/j.ifacol.2024.07.214}
+         (IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - Safe Process 2024)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                June 2024
+            }
+                \textbf{A Flexible Data-Driven Prognostics Model Using System Performance Metrics}
+
+                \vspace{0.10 cm}
+
+                \mbox{Abel Diaz-Gonzalez}, \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1016/j.ifacol.2024.07.221}{10.1016/j.ifacol.2024.07.221}
+         (IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes - Safe Process 2024)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                Nov 2023
+            }
+                \textbf{An interactive web-based tool for predicting and exploring brain cancer survivability}
+
+                \vspace{0.10 cm}
+
+                \mbox{Gopal Nath}, \mbox{Austin Coursey}, \mbox{Yang Li}, \mbox{Srikanth Prabhu}, \mbox{Harish Garg}, \mbox{Shaymal C Halder}, \mbox{Saptarshi Sengupta}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1016/j.health.2022.100132}{10.1016/j.health.2022.100132}
+         (Healthcare Analytics)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                Sept 2023
+            }
+                \textbf{Enhancing Prognostics with Self-Supervised Imputation}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Abel Diaz-Gonzalez}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        International Workshop on Principles of Diagnosis - DX'23 - Workshop Paper    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                June 2023
+            }
+                \textbf{On Learning Data-Driven Models For In-Flight Drone Battery Discharge Estimation From Real Data}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Marcos Quinones-Grueiro}, \mbox{Gautam Biswas}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1109/SMARTCOMP58114.2023.00038}{10.1109/SMARTCOMP58114.2023.00038}
+         (IEEE International Conference on Smart Computing - SMARTCOMP 2023)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                June 2023
+            }
+                \textbf{Large-scale End-of-Life Prediction of Hard Disks in Distributed Datacenters}
+
+                \vspace{0.10 cm}
+
+                \mbox{Rohan Mohapatra}, \mbox{Austin Coursey}, \mbox{Saptarshi Sengupta}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1109/SMARTCOMP58114.2023.00069}{10.1109/SMARTCOMP58114.2023.00069}
+         (IEEE International Conference on Smart Computing - SMARTCOMP 2023 - Workshop Paper)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                Apr 2023
+            }
+                \textbf{Aspirations and practice of ml model documentation: Moving the needle with nudging and traceability}
+
+                \vspace{0.10 cm}
+
+                \mbox{Avinash Bhat}, \mbox{Austin Coursey (joint primary)}, \mbox{Grace Hu}, \mbox{Sixian Li}, \mbox{Nadia Nahar}, \mbox{Shurui Zhou}, \mbox{Christian Kästner}, \mbox{Jin LC Guo}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1145/3544548.3581518}{10.1145/3544548.3581518}
+         (CHI Conference on Human Factors in Computing Systems - CHI 2023)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                June 2022
+            }
+                \textbf{Incorporating a machine learning model into a Web-based administrative decision support tool for predicting workplace absenteeism}
+
+                \vspace{0.10 cm}
+
+                \mbox{Gopal Nath}, \mbox{Yawei Wang}, \mbox{Austin Coursey}, \mbox{Krishna K Saha}, \mbox{Srikanth Prabhu}, \mbox{Saptarshi Sengupta}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.3390/info13070320}{10.3390/info13070320}
+         (Information)    \end{twocolentry}
+        \end{samepage}
+
+        \vspace{0.2 cm}
+
+        \begin{samepage}
+            \begin{twocolentry}{
+                Dec 2021
+            }
+                \textbf{Remaining useful life estimation of hard disk drives using bidirectional lstm networks}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}, \mbox{Gopal Nath}, \mbox{Srikanth Prabhu}, \mbox{Saptarshi Sengupta}
+                \vspace{0.10 cm}
+
+        \href{https://doi.org/10.1109/BigData52589.2021.9671605}{10.1109/BigData52589.2021.9671605}
+         (IEEE International Conference on Big Data - Big Data 2024)    \end{twocolentry}
+        \end{samepage}
+
+
+    
+    \section{Theses}
+
+
+
+        
+        \begin{samepage}
+            \begin{twocolentry}{
+                May 2022
+            }
+                \textbf{Data-driven models for remaining useful life estimation of aircraft engines and hard disk drives}
+
+                \vspace{0.10 cm}
+
+                \mbox{Austin Coursey}
+                \vspace{0.10 cm}
+
+        \href{https://digitalcommons.murraystate.edu/honorstheses/116/}{digitalcommons.murraystate.edu/honorstheses/116}    \end{twocolentry}
+        \end{samepage}
+
+
+    
+    \section{Conferences and Refereeing}
+
+
+
+        
+        \begin{twocolentry}{
+            July 2024
+        }
+            \textbf{AIAA Aviation Forum}
+            \begin{highlights}
+                \item System-Wide Safety session Co-Chair.
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            June 2023
+        }
+            \textbf{IEEE Conference on Smart Computing}
+            \begin{highlights}
+                \item Student volunteer.
+            \end{highlights}
+        \end{twocolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Refereeing}
+            \begin{highlights}
+                \item International Workshop on Principles of Diagnosis (DX 2024)
+                \item Journal of Aerospace Information Systems (JAIS)
+                \item IEEE Transactions on Industrial Informatics
+                \item ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD 2024) \textbf{Best Reviewer Award}
+                \item IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes (Safe Process 2024)
+                \item American Control Conference (ACC 2023, 2024)
+                \item Expert Systems with Applications
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    
+
+\end{document}
