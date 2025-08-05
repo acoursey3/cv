@@ -1,0 +1,122 @@
+cv:
+  name: Austin Coursey
+  email: austin.c.coursey@vanderbilt.edu
+  website: https://scholar.google.com/citations?user=vLlw5KcAAAAJ
+  sections:
+    Summary:
+      - 3rd year CS Ph.D. student at Vanderbilt University. Interested in developing and applying machine learning solutions to solve problems in real-world complex systems. Research interests include reinforcement learning, prognostics, anomaly detection, and continual learning. Recently completed a NASA System-Wide Safety project where I developed and deployed a controller that improved unmanned aerial vehicle control under strong wind disturbances. Researching the intersection of safe and continual reinforcement learning for my NSF Fellowship.
+    education:
+      - institution: Vanderbilt University
+        area: Computer Science 
+        degree: PhD
+        start_date: 2022-08
+        location: Nashville, TN
+        end_date: present
+        highlights:
+          - Member of the Modeling and Analysis of Complex Systems (MACS) lab under Professor Gautam Biswas at the Institute for Software Integrated Systems.
+          - Teaching Assistant for 5 sections of Discrete Structures course 1 semester, then a Research Assistant on NASA unmanned aerial vehicle project, and now an NSF Graduate Research Fellow.
+      - institution: Murray State University
+        area: Computer Science and Mathematics
+        degree: BS
+        start_date: 2018-08
+        end_date: 2022-05
+        location: Murray, KY
+        highlights:
+          - Undergraduate Thesis - Data-driven Models for Remaining Useful Life Estimation of Aircraft Engines and Hard Disk Drives
+          - 4.0 GPA, Honors Degree, and Summa Cum Laude
+          - Outstanding Senior in Computer Science x2 and Mathematics
+          - Multiple leadership positions including President of Association for Computing Machinery and Vice President of Association of Information Technology Professionals
+    experience:
+      - company: Carnegie Mellon University
+        position: Undergraduate Researcher
+        location: Pittsburgh, PA
+        start_date: 2021-06
+        end_date: 2021-08
+        highlights:
+          - Summer researcher at Carnegie Mellon University’s Research Experience for Undergraduates in Software Engineering (REUSE) program. Evaluated the quality of machine learning model documentation in the form of model cards. Designed a study to determine the effectiveness of a novel tool that autogenerates model cards for Jupyter Notebooks. Paper published in CHI.
+      - company: United Systems and Software
+        position: Software Development Intern
+        location: Benton, KY
+        start_date: 2020-06
+        end_date: 2021-06
+        highlights:
+          - Performed full-stack website development using Angular (TypeScript, CSS, and HTML), C# .NET, and SQL. Developed a web portal for utility customers across Kentucky and some surrounding states to pay their bills and participated in Agile, team-based development.
+      - company: Land Between the Lakes National Recreation Area
+        position: Webmaster Intern
+        location: Golden Pond, KY
+        start_date: 2019-08
+        end_date: 2022-08
+        highlights:
+          - Developed and maintained a website with over 129,000 monthly page visits. Created over 50 individual web pages using WordPress, HTML, and CSS.
+    Awards and Honors:
+      - name: National Science Foundation Graduate Research Fellow
+        date: 2024
+      - name: Best Reviewer Award - KDD 2024
+        date: 2024
+      - name: Murray State University Outstanding Senior Computer Science (2021 and 2022), Mathematics (2022)
+    publications:
+      - title: Quantifying the Sim-To-Real Gap in UAV Disturbance Rejection
+        authors:
+          - Austin Coursey
+          - Marcos Quinones-Grueiro 
+          - Gautam Biswas
+        doi: 10.4230/OASIcs.DX.2024.16
+        date: 2024-10
+        journal: International Conference on Principles of Diagnosis and Resilient Systems
+      - title: An Experimental Framework for Evaluating the Safety and Robustness of UAV Controllers
+        authors:
+          - Austin Coursey
+          - Marcos Quinones-Grueiro 
+          - Gautam Biswas
+        doi: 10.2514/6.2024-4548
+        date: 2024-08
+        journal: AIAA Aviation Forum 2024
+      - title: Hybrid control framework of uavs under varying wind and payload conditions
+        authors:
+          - Austin Coursey
+          - Marcos Quinones-Grueiro 
+          - Gautam Biswas
+        doi: 10.23919/ACC60939.2024.10645000
+        date: 2024-07
+        journal: American Control Conference - ACC 2024
+      - title: For a comprehensive list of all 18 publications, please see Google Scholar.
+        authors:
+          - https://scholar.google.com/citations?user=vLlw5KcAAAAJ.
+design:
+  theme: classic
+  font: Source Sans 3
+  font_size: 10pt
+  page_size: letterpaper
+  color: '#004f90'
+  disable_external_link_icons: false
+  disable_page_numbering: true
+  page_numbering_style: NAME - Page PAGE_NUMBER of TOTAL_PAGES
+  disable_last_updated_date: true
+  last_updated_date_style: Last updated in TODAY
+  header_font_size: 18 pt
+  text_alignment: justified
+  seperator_between_connections: ''
+  use_icons_for_connections: true
+  margins:
+    page:
+      top: 1 cm
+      bottom: 1 cm
+      left: 1 cm
+      right: 1 cm
+    section_title:
+      top: 0.1 cm
+      bottom: 0.1 cm
+    entry_area:
+      left_and_right: 0.2 cm
+      vertical_between: 0.1 cm
+      date_and_location_width: 3.5 cm
+      education_degree_width: 1 cm
+    highlights_area:
+      top: 0.05 cm
+      left: 0.4 cm
+      vertical_between_bullet_points: 0.05 cm
+    header:
+      vertical_between_name_and_connections: 0.1 cm
+      bottom: 0.1 cm
+      horizontal_between_connections: 0.5 cm
+  show_timespan_in: []

@@ -14,7 +14,9 @@
 
         \vspace{<<design.margins.highlights_area.top>>}
 
+        ((* if entry.authors *))
         <<entry.authors|map("make_it_nolinebreak")|join(", ")>>
+        ((* endif *))
         ((* if entry.doi or entry.journal or entry.url *))
         \vspace{<<design.margins.highlights_area.vertical_between_bullet_points>>}
 
@@ -35,3 +37,4 @@
     \end{onecolentry}
     ((* endif *))
 \end{samepage}
+    
